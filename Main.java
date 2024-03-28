@@ -8,14 +8,16 @@ import java.util.Scanner;
 public class Main{
     static Map<Integer, Integer> eats = new HashMap<>();
     public static void main(String[] args) {
-        int lenght = 9;
-        Scanner scan = new Scanner(System.in);
+        int lenght = 12;
         Board board = new Board(lenght);
+        //Scanner scan = new Scanner(System.in);
+        RPSCellAutomata automata = new RPSCellAutomata(board);
+        
         Random rand = new Random();
         Queue<Cell> rockQueue = new LinkedList<>();
         Queue<Cell> paperQueue = new LinkedList<>();
         Queue<Cell> scissorQueue = new LinkedList<>();
-
+        
         eats.put(Board.ROCK, Board.SCISSOR);
         eats.put(Board.PAPER, Board.ROCK);
         eats.put(Board.SCISSOR, Board.PAPER);
@@ -43,10 +45,11 @@ public class Main{
                 traverse(board, scissorQueue, Board.SCISSOR);
             }
             board.printBoard();
-            scan.nextLine();
+            //scan.nextLine();
         }
-        scan.close();
+        //scan.close();
     }
+
 
     private static void traverse(Board board, Queue<Cell> queue, int piece) {
         Cell next = queue.poll();

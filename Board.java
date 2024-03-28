@@ -38,4 +38,11 @@ public class Board {
     public int[][] getBoard() {
         return board;
     }
+
+    public int getRowCount(){
+        return this.board.length;
+    }
+    public int getColCount(){
+        return this.board[0].length;
+    }
 }
