@@ -14,5 +14,10 @@ public class Cell {
     public int getCol() {
         return col;
     }
+
+    @Override
+    public String toString() {
+        return "[" + row + "," + col +"]";
+    }
     
 }
